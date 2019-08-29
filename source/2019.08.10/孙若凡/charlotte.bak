@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+#define LL long long
+using namespace std;
+inline int read(){
+	static int x; static char c; x = 0,c = getchar();
+	while (!isdigit(c)) c = getchar();
+	while (isdigit(c)) x = x * 10 + c - '0',c = getchar();
+	return x;
+}
+inline void write(int x){ if (x < 0) putchar('-'),x = -x; if (x > 9) write(x/10); putchar(x % 10 + '0'); }
+inline void writeln(int x){ write(x),putchar('\n'); }
+inline void File(){
+	freopen("charlotte.in","r",stdin);
+	freopen("charlotte.out","w",stdout);
+}
+int T,n,nx,ny,nt,win,x,y,t,w;
+int main(){
+	File();
+	T = read();
+	while (T--){
+		n = read();
+		nx = ny = nt = 0,win = 1;
+		while (n--){
+			t = read(),x = read(),y = read();
+			w = (t - nt) - (abs(x-nx) + abs(y-ny));
+			if (w < 0 || (w&1)) {puts("No"); win = 0; break;} 
+			x = nx,y = ny,t = nt;
+		}
+		if (win) puts("Yes"); else while (n--) t = read(),x = read(),y = read();
+	}ss
+	return 0;
+}
